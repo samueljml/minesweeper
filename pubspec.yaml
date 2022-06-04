@@ -18,12 +18,15 @@ dependencies:
 dev_dependencies:
     flutter_test:
         sdk: flutter
+    flutter_localizations:
+        sdk: flutter
+    intl: ^0.17.0
 
     flutter_lints: ^1.0.0
 
 flutter:
     uses-material-design: true
-
+    generate: true
     fonts:
         - family: Minesweeper
           fonts:
