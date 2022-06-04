@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'app/core/theme/theme.dart';
+
 void main() {
-  runApp(const GetMaterialApp(
+  runApp(GetMaterialApp(
     title: "Minesweeper",
     debugShowCheckedModeBanner: false,
-    // theme: themeData,
+    theme: themeData,
     // initialRoute: ,
     // getPages: [],
     // initialBinding: ,
