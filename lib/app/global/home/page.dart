@@ -11,7 +11,9 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    TextEditingController text = TextEditingController(text: "10");
+    TextEditingController textBombs = TextEditingController(text: "10");
+    TextEditingController textWidth = TextEditingController(text: "10");
+    TextEditingController textHeight = TextEditingController(text: "10");
 
     return Scaffold(
       body: Container(
@@ -20,8 +22,9 @@ class Home extends StatelessWidget {
         decoration: const BoxDecoration(color: secondaryColor),
         padding: const EdgeInsets.all(20),
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            runSpacing: 20,
             children: [
               MediaQuery(
                 data: MediaQuery.of(context)
@@ -32,7 +35,6 @@ class Home extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline1),
                 ]),
               ),
-              const SizedBox(height: 10),
               Container(
                 width: double.infinity,
                 decoration: BoxDecoration(border: Border.all(width: 4)),
@@ -57,7 +59,7 @@ class Home extends StatelessWidget {
                       child: SizedBox(
                         height: 50,
                         child: TextFormField(
-                          controller: text,
+                          controller: textBombs,
                           keyboardType: TextInputType.number,
                           style: Theme.of(context)
                               .textTheme
@@ -73,6 +75,60 @@ class Home extends StatelessWidget {
                   ],
                 ),
               ),
+              SizedBox(
+                width: double.infinity,
+                child: Row(children: [
+                  Flexible(
+                    flex: 3,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(border: Border.all(width: 4)),
+                      height: 55,
+                      child: TextFormField(
+                        controller: textWidth,
+                        keyboardType: TextInputType.number,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .merge(const TextStyle(fontSize: 20)),
+                        cursorColor: Colors.black,
+                        decoration:
+                            const InputDecoration(border: InputBorder.none),
+                      ),
+                    ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: Center(
+                        child: Text(
+                      "x",
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline6!
+                          .merge(const TextStyle(fontSize: 20)),
+                    )),
+                  ),
+                  Flexible(
+                    flex: 3,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      decoration: BoxDecoration(border: Border.all(width: 4)),
+                      height: 55,
+                      child: TextFormField(
+                        controller: textHeight,
+                        keyboardType: TextInputType.number,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6!
+                            .merge(const TextStyle(fontSize: 20)),
+                        cursorColor: Colors.black,
+                        decoration:
+                            const InputDecoration(border: InputBorder.none),
+                      ),
+                    ),
+                  ),
+                ]),
+              )
             ],
           ),
         ),
