@@ -26,14 +26,10 @@ class Home extends StatelessWidget {
             alignment: WrapAlignment.center,
             runSpacing: 20,
             children: [
-              MediaQuery(
-                data: MediaQuery.of(context)
-                    .copyWith(textScaleFactor: width / 551),
-                child:
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text(AppLocalizations.of(context)!.title,
-                      style: Theme.of(context).textTheme.headline1),
-                ]),
+              FittedBox(
+                fit: BoxFit.fill,
+                child: Text(AppLocalizations.of(context)!.title,
+                    style: Theme.of(context).textTheme.headline1),
               ),
               Container(
                 width: double.infinity,
