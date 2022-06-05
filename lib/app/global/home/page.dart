@@ -3,9 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:minesweeper/app/core/values/colors.dart';
 
-const double minWidth = 500;
-const double minHeight = 700;
-
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -14,6 +11,10 @@ class Home extends StatelessWidget {
     TextEditingController textBombs = TextEditingController(text: "10");
     TextEditingController textWidth = TextEditingController(text: "10");
     TextEditingController textHeight = TextEditingController(text: "10");
+    final TextStyle? fieldsTextStyle = Theme.of(context).textTheme.headline5;
+    const double fieldsPadding = 10;
+    const double widgetsHeight = 55;
+    const BorderSide borderSide = BorderSide(width: 4);
 
     return Scaffold(
       body: Container(
@@ -31,17 +32,15 @@ class Home extends StatelessWidget {
                 child: Text(AppLocalizations.of(context)!.title,
                     style: Theme.of(context).textTheme.headline1),
               ),
-              Container(
+              SizedBox(
                 width: double.infinity,
-                decoration: BoxDecoration(border: Border.all(width: 4)),
                 child: Row(
                   children: [
                     Container(
-                      decoration: const BoxDecoration(
-                          border: Border(right: BorderSide(width: 4))),
-                      padding: const EdgeInsets.all(10),
-                      width: 50,
-                      height: 50,
+                      decoration: BoxDecoration(border: Border.all(width: 4)),
+                      padding: const EdgeInsets.all(fieldsPadding),
+                      width: widgetsHeight,
+                      height: widgetsHeight,
                       child: Center(
                         child: FittedBox(
                           fit: BoxFit.fill,
@@ -50,10 +49,16 @@ class Home extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
                     Flexible(
-                      child: SizedBox(
-                        height: 50,
+                      child: Container(
+                        height: widgetsHeight,
+                        padding: const EdgeInsets.all(fieldsPadding),
+                        decoration: const BoxDecoration(
+                          border: Border(
+                              top: borderSide,
+                              right: borderSide,
+                              bottom: borderSide),
+                        ),
                         child: TextFormField(
                           controller: textBombs,
                           keyboardType: TextInputType.number,
@@ -61,14 +66,13 @@ class Home extends StatelessWidget {
                             FilteringTextInputFormatter.digitsOnly,
                             LengthLimitingTextInputFormatter(6)
                           ],
-                          style: Theme.of(context).textTheme.headline5,
+                          style: fieldsTextStyle,
                           cursorColor: Colors.black,
                           decoration:
                               const InputDecoration(border: InputBorder.none),
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
                   ],
                 ),
               ),
@@ -78,9 +82,9 @@ class Home extends StatelessWidget {
                   Flexible(
                     flex: 3,
                     child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(fieldsPadding),
                       decoration: BoxDecoration(border: Border.all(width: 4)),
-                      height: 55,
+                      height: widgetsHeight,
                       child: TextFormField(
                         controller: textWidth,
                         keyboardType: TextInputType.number,
@@ -88,7 +92,7 @@ class Home extends StatelessWidget {
                           FilteringTextInputFormatter.digitsOnly,
                           LengthLimitingTextInputFormatter(3)
                         ],
-                        style: Theme.of(context).textTheme.headline5,
+                        style: fieldsTextStyle,
                         cursorColor: Colors.black,
                         decoration:
                             const InputDecoration(border: InputBorder.none),
@@ -100,15 +104,15 @@ class Home extends StatelessWidget {
                     child: Center(
                         child: Text(
                       "x",
-                      style: Theme.of(context).textTheme.headline5,
+                      style: fieldsTextStyle,
                     )),
                   ),
                   Flexible(
                     flex: 3,
                     child: Container(
-                      padding: const EdgeInsets.all(10),
+                      padding: const EdgeInsets.all(fieldsPadding),
                       decoration: BoxDecoration(border: Border.all(width: 4)),
-                      height: 55,
+                      height: widgetsHeight,
                       child: TextFormField(
                         controller: textHeight,
                         keyboardType: TextInputType.number,
@@ -116,7 +120,7 @@ class Home extends StatelessWidget {
                           FilteringTextInputFormatter.digitsOnly,
                           LengthLimitingTextInputFormatter(3)
                         ],
-                        style: Theme.of(context).textTheme.headline5,
+                        style: fieldsTextStyle,
                         cursorColor: Colors.black,
                         decoration:
                             const InputDecoration(border: InputBorder.none),
@@ -126,7 +130,7 @@ class Home extends StatelessWidget {
                 ]),
               ),
               Container(
-                height: 60,
+                height: widgetsHeight,
                 decoration: BoxDecoration(border: Border.all(width: 4)),
                 width: double.infinity,
                 child: OutlinedButton(
@@ -134,7 +138,7 @@ class Home extends StatelessWidget {
                     AppLocalizations.of(context)!
                         .startGameButtonText
                         .toUpperCase(),
-                    style: Theme.of(context).textTheme.headline5,
+                    style: fieldsTextStyle,
                   ),
                   onPressed: () {},
                   style: OutlinedButton.styleFrom(
