@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:minesweeper/app/core/values/colors.dart';
 
@@ -10,7 +11,6 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     TextEditingController textBombs = TextEditingController(text: "10");
     TextEditingController textWidth = TextEditingController(text: "10");
     TextEditingController textHeight = TextEditingController(text: "10");
@@ -57,6 +57,10 @@ class Home extends StatelessWidget {
                         child: TextFormField(
                           controller: textBombs,
                           keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            FilteringTextInputFormatter.digitsOnly,
+                            LengthLimitingTextInputFormatter(6)
+                          ],
                           style: Theme.of(context).textTheme.headline5,
                           cursorColor: Colors.black,
                           decoration:
@@ -80,6 +84,10 @@ class Home extends StatelessWidget {
                       child: TextFormField(
                         controller: textWidth,
                         keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly,
+                          LengthLimitingTextInputFormatter(3)
+                        ],
                         style: Theme.of(context).textTheme.headline5,
                         cursorColor: Colors.black,
                         decoration:
@@ -104,6 +112,10 @@ class Home extends StatelessWidget {
                       child: TextFormField(
                         controller: textHeight,
                         keyboardType: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly,
+                          LengthLimitingTextInputFormatter(3)
+                        ],
                         style: Theme.of(context).textTheme.headline5,
                         cursorColor: Colors.black,
                         decoration:
