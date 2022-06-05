@@ -1,3 +1,4 @@
 {
-    "title": "Minesweeper"
+    "title": "Minesweeper",
+     "startGameButtonText": "Start"
 }

@@ -57,10 +57,7 @@ class Home extends StatelessWidget {
                         child: TextFormField(
                           controller: textBombs,
                           keyboardType: TextInputType.number,
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline6!
-                              .merge(const TextStyle(fontSize: 20)),
+                          style: Theme.of(context).textTheme.headline5,
                           cursorColor: Colors.black,
                           decoration:
                               const InputDecoration(border: InputBorder.none),
@@ -83,10 +80,7 @@ class Home extends StatelessWidget {
                       child: TextFormField(
                         controller: textWidth,
                         keyboardType: TextInputType.number,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6!
-                            .merge(const TextStyle(fontSize: 20)),
+                        style: Theme.of(context).textTheme.headline5,
                         cursorColor: Colors.black,
                         decoration:
                             const InputDecoration(border: InputBorder.none),
@@ -98,10 +92,7 @@ class Home extends StatelessWidget {
                     child: Center(
                         child: Text(
                       "x",
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline6!
-                          .merge(const TextStyle(fontSize: 20)),
+                      style: Theme.of(context).textTheme.headline5,
                     )),
                   ),
                   Flexible(
@@ -113,10 +104,7 @@ class Home extends StatelessWidget {
                       child: TextFormField(
                         controller: textHeight,
                         keyboardType: TextInputType.number,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline6!
-                            .merge(const TextStyle(fontSize: 20)),
+                        style: Theme.of(context).textTheme.headline5,
                         cursorColor: Colors.black,
                         decoration:
                             const InputDecoration(border: InputBorder.none),
