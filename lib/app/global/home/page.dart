@@ -124,7 +124,27 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ]),
-              )
+              ),
+              Container(
+                height: 60,
+                decoration: BoxDecoration(border: Border.all(width: 4)),
+                width: double.infinity,
+                child: OutlinedButton(
+                  child: Text(
+                    AppLocalizations.of(context)!
+                        .startGameButtonText
+                        .toUpperCase(),
+                    style: Theme.of(context).textTheme.headline5,
+                  ),
+                  onPressed: () {},
+                  style: OutlinedButton.styleFrom(
+                    primary: Colors.black,
+                    onSurface: Colors.red,
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.zero)),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
