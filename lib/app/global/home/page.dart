@@ -52,7 +52,8 @@ class Home extends StatelessWidget {
                     Flexible(
                       child: Container(
                         height: widgetsHeight,
-                        padding: const EdgeInsets.all(fieldsPadding),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: fieldsPadding),
                         decoration: const BoxDecoration(
                           border: Border(
                               top: borderSide,
@@ -82,7 +83,8 @@ class Home extends StatelessWidget {
                   Flexible(
                     flex: 3,
                     child: Container(
-                      padding: const EdgeInsets.all(fieldsPadding),
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: fieldsPadding),
                       decoration: BoxDecoration(border: Border.all(width: 4)),
                       height: widgetsHeight,
                       child: TextFormField(
@@ -110,7 +112,8 @@ class Home extends StatelessWidget {
                   Flexible(
                     flex: 3,
                     child: Container(
-                      padding: const EdgeInsets.all(fieldsPadding),
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: fieldsPadding),
                       decoration: BoxDecoration(border: Border.all(width: 4)),
                       height: widgetsHeight,
                       child: TextFormField(
