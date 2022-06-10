@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:minesweeper/app/global/home/binding.dart';
 
 import '../../global/home/page.dart';
 
@@ -31,6 +32,7 @@ class Pages {
     GetPage(
       name: '/',
       page: () => const Home(),
+      binding: HomeBinding(),
       participatesInRootNavigator: true,
       preventDuplicates: true,
       title: "Home",
