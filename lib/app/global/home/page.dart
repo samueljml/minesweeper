@@ -20,89 +20,131 @@ class Home extends GetView<HomeController> {
     const BorderSide borderSide = BorderSide(width: 4);
 
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(color: secondaryColor),
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    LanguageService.to.toggleLanguage();
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(border: Border.all(width: 4)),
-                    padding: const EdgeInsets.all(fieldsPadding),
-                    width: widgetsHeight,
-                    height: widgetsHeight,
-                    child: Obx(
-                      () => Center(
-                        child: Text(LanguageService.to.getSelectedLanguage,
-                            style: fieldsTextStyle!
-                                .merge(const TextStyle(fontSize: 11))),
+      appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(0),
+          child: AppBar(
+            backgroundColor: secondaryColor,
+          )),
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+          height: double.infinity,
+          decoration: const BoxDecoration(color: secondaryColor),
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      LanguageService.to.toggleLanguage();
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(border: Border.all(width: 4)),
+                      padding: const EdgeInsets.all(fieldsPadding),
+                      width: widgetsHeight,
+                      height: widgetsHeight,
+                      child: Obx(
+                        () => Center(
+                          child: Text(LanguageService.to.getSelectedLanguage,
+                              style: fieldsTextStyle!
+                                  .merge(const TextStyle(fontSize: 11))),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(
-                    child: Wrap(
-                      alignment: WrapAlignment.center,
-                      runSpacing: 20,
-                      children: [
-                        FittedBox(
-                          fit: BoxFit.fill,
-                          child: Text('title'.tr,
-                              style: Theme.of(context).textTheme.headline1),
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration:
-                                    BoxDecoration(border: Border.all(width: 4)),
-                                padding: const EdgeInsets.all(fieldsPadding),
-                                width: widgetsHeight,
-                                height: widgetsHeight,
-                                child: Center(
-                                  child: FittedBox(
-                                    fit: BoxFit.fill,
-                                    child: Text("*",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline2),
+                ],
+              ),
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        runSpacing: 20,
+                        children: [
+                          FittedBox(
+                            fit: BoxFit.fill,
+                            child: Text('title'.tr,
+                                style: Theme.of(context).textTheme.headline1),
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            child: Row(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                      border: Border.all(width: 4)),
+                                  padding: const EdgeInsets.all(fieldsPadding),
+                                  width: widgetsHeight,
+                                  height: widgetsHeight,
+                                  child: Row(
+                                    children: [
+                                      Center(
+                                        child: FittedBox(
+                                          fit: BoxFit.fill,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 4.5, top: 5),
+                                            child: Text("*",
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .headline2),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ),
+                                Flexible(
+                                  child: Container(
+                                    height: widgetsHeight,
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: fieldsPadding),
+                                    decoration: const BoxDecoration(
+                                      border: Border(
+                                          top: borderSide,
+                                          right: borderSide,
+                                          bottom: borderSide),
+                                    ),
+                                    child: TextFormField(
+                                      controller: textBombs,
+                                      keyboardType: TextInputType.number,
+                                      inputFormatters: <TextInputFormatter>[
+                                        FilteringTextInputFormatter.digitsOnly,
+                                        LengthLimitingTextInputFormatter(6)
+                                      ],
+                                      style: fieldsTextStyle,
+                                      cursorColor: Colors.black,
+                                      decoration: const InputDecoration(
+                                          border: InputBorder.none),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            child: Row(children: [
                               Flexible(
+                                flex: 3,
                                 child: Container(
-                                  height: widgetsHeight,
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: fieldsPadding),
-                                  decoration: const BoxDecoration(
-                                    border: Border(
-                                        top: borderSide,
-                                        right: borderSide,
-                                        bottom: borderSide),
-                                  ),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(width: 4)),
+                                  height: widgetsHeight,
                                   child: TextFormField(
-                                    controller: textBombs,
+                                    controller: textWidth,
                                     keyboardType: TextInputType.number,
                                     inputFormatters: <TextInputFormatter>[
                                       FilteringTextInputFormatter.digitsOnly,
-                                      LengthLimitingTextInputFormatter(6)
+                                      LengthLimitingTextInputFormatter(3)
                                     ],
                                     style: fieldsTextStyle,
                                     cursorColor: Colors.black,
@@ -111,92 +153,66 @@ class Home extends GetView<HomeController> {
                                   ),
                                 ),
                               ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: Row(children: [
-                            Flexible(
-                              flex: 3,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: fieldsPadding),
-                                decoration:
-                                    BoxDecoration(border: Border.all(width: 4)),
-                                height: widgetsHeight,
-                                child: TextFormField(
-                                  controller: textWidth,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: <TextInputFormatter>[
-                                    FilteringTextInputFormatter.digitsOnly,
-                                    LengthLimitingTextInputFormatter(3)
-                                  ],
+                              Flexible(
+                                flex: 1,
+                                child: Center(
+                                    child: Text(
+                                  "x",
                                   style: fieldsTextStyle,
-                                  cursorColor: Colors.black,
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none),
+                                )),
+                              ),
+                              Flexible(
+                                flex: 3,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: fieldsPadding),
+                                  decoration: BoxDecoration(
+                                      border: Border.all(width: 4)),
+                                  height: widgetsHeight,
+                                  child: TextFormField(
+                                    controller: textHeight,
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: <TextInputFormatter>[
+                                      FilteringTextInputFormatter.digitsOnly,
+                                      LengthLimitingTextInputFormatter(3)
+                                    ],
+                                    style: fieldsTextStyle,
+                                    cursorColor: Colors.black,
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none),
+                                  ),
                                 ),
                               ),
-                            ),
-                            Flexible(
-                              flex: 1,
-                              child: Center(
-                                  child: Text(
-                                "x",
+                            ]),
+                          ),
+                          Container(
+                            height: widgetsHeight,
+                            decoration:
+                                BoxDecoration(border: Border.all(width: 4)),
+                            width: double.infinity,
+                            child: OutlinedButton(
+                              child: Text(
+                                'startGameButtonText'.tr.toUpperCase(),
                                 style: fieldsTextStyle,
-                              )),
-                            ),
-                            Flexible(
-                              flex: 3,
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: fieldsPadding),
-                                decoration:
-                                    BoxDecoration(border: Border.all(width: 4)),
-                                height: widgetsHeight,
-                                child: TextFormField(
-                                  controller: textHeight,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: <TextInputFormatter>[
-                                    FilteringTextInputFormatter.digitsOnly,
-                                    LengthLimitingTextInputFormatter(3)
-                                  ],
-                                  style: fieldsTextStyle,
-                                  cursorColor: Colors.black,
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none),
-                                ),
+                              ),
+                              onPressed: () {},
+                              style: OutlinedButton.styleFrom(
+                                primary: Colors.black,
+                                onSurface: Colors.red,
+                                shape: const RoundedRectangleBorder(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.zero)),
                               ),
                             ),
-                          ]),
-                        ),
-                        Container(
-                          height: widgetsHeight,
-                          decoration:
-                              BoxDecoration(border: Border.all(width: 4)),
-                          width: double.infinity,
-                          child: OutlinedButton(
-                            child: Text(
-                              'startGameButtonText'.tr.toUpperCase(),
-                              style: fieldsTextStyle,
-                            ),
-                            onPressed: () {},
-                            style: OutlinedButton.styleFrom(
-                              primary: Colors.black,
-                              onSurface: Colors.red,
-                              shape: const RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.all(Radius.zero)),
-                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
