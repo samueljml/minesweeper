@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../../modules/game/page.dart';
 import '../../modules/home/binding.dart';
 import '../../modules/home/page.dart';
 
@@ -39,7 +40,9 @@ class Pages {
       middlewares: [
         ForceNavigateToRouteMiddleware(from: '/', to: '/home'),
       ],
-      children: const [],
+      children: [
+        GetPage(name: "/game", title: "Game", page: () => const Game())
+      ],
     ),
   ];
 }
