@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:minesweeper/app/global/home/binding.dart';
 
-import '../../global/home/page.dart';
+import '../../modules/home/binding.dart';
+import '../../modules/home/page.dart';
 
 class ForceNavigateToRouteMiddleware extends GetMiddleware {
   final String from;

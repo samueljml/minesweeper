@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:minesweeper/app/core/values/colors.dart';
-import 'package:minesweeper/app/global/home/controller.dart';
+import 'package:minesweeper/app/modules/home/controller.dart';
 
 import '../../data/services/language.dart';
 
