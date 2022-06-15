@@ -11,9 +11,6 @@ class Home extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController textBombs = TextEditingController(text: "10");
-    TextEditingController textWidth = TextEditingController(text: "10");
-    TextEditingController textHeight = TextEditingController(text: "10");
     final TextStyle? fieldsTextStyle = Theme.of(context).textTheme.headline5;
     const double fieldsPadding = 10;
     const double widgetsHeight = 55;
@@ -27,9 +24,7 @@ class Home extends GetView<HomeController> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               GestureDetector(
-                onTap: () {
-                  LanguageService.to.toggleLanguage();
-                },
+                onTap: () => LanguageService.to.toggleLanguage(),
                 child: Container(
                   decoration: BoxDecoration(border: Border.all(width: 4)),
                   padding: const EdgeInsets.all(fieldsPadding),
@@ -100,17 +95,20 @@ class Home extends GetView<HomeController> {
                                       right: borderSide,
                                       bottom: borderSide),
                                 ),
-                                child: TextFormField(
-                                  controller: textBombs,
-                                  keyboardType: TextInputType.number,
-                                  inputFormatters: <TextInputFormatter>[
-                                    FilteringTextInputFormatter.digitsOnly,
-                                    LengthLimitingTextInputFormatter(6)
-                                  ],
-                                  style: fieldsTextStyle,
-                                  cursorColor: Colors.black,
-                                  decoration: const InputDecoration(
-                                      border: InputBorder.none),
+                                child: Obx(
+                                  () => TextFormField(
+                                    controller:
+                                        controller.getTextControllers.textBombs,
+                                    keyboardType: TextInputType.number,
+                                    inputFormatters: <TextInputFormatter>[
+                                      FilteringTextInputFormatter.digitsOnly,
+                                      LengthLimitingTextInputFormatter(6)
+                                    ],
+                                    style: fieldsTextStyle,
+                                    cursorColor: Colors.black,
+                                    decoration: const InputDecoration(
+                                        border: InputBorder.none),
+                                  ),
                                 ),
                               ),
                             ),
@@ -128,17 +126,20 @@ class Home extends GetView<HomeController> {
                               decoration:
                                   BoxDecoration(border: Border.all(width: 4)),
                               height: widgetsHeight,
-                              child: TextFormField(
-                                controller: textWidth,
-                                keyboardType: TextInputType.number,
-                                inputFormatters: <TextInputFormatter>[
-                                  FilteringTextInputFormatter.digitsOnly,
-                                  LengthLimitingTextInputFormatter(3)
-                                ],
-                                style: fieldsTextStyle,
-                                cursorColor: Colors.black,
-                                decoration: const InputDecoration(
-                                    border: InputBorder.none),
+                              child: Obx(
+                                () => TextFormField(
+                                  controller:
+                                      controller.getTextControllers.textWidth,
+                                  keyboardType: TextInputType.number,
+                                  inputFormatters: <TextInputFormatter>[
+                                    FilteringTextInputFormatter.digitsOnly,
+                                    LengthLimitingTextInputFormatter(3)
+                                  ],
+                                  style: fieldsTextStyle,
+                                  cursorColor: Colors.black,
+                                  decoration: const InputDecoration(
+                                      border: InputBorder.none),
+                                ),
                               ),
                             ),
                           ),
@@ -159,7 +160,8 @@ class Home extends GetView<HomeController> {
                                   BoxDecoration(border: Border.all(width: 4)),
                               height: widgetsHeight,
                               child: TextFormField(
-                                controller: textHeight,
+                                controller:
+                                    controller.getTextControllers.textHeight,
                                 keyboardType: TextInputType.number,
                                 inputFormatters: <TextInputFormatter>[
                                   FilteringTextInputFormatter.digitsOnly,

@@ -10,7 +10,7 @@ class LanguageService extends GetxService {
   final RxString _selectedLanguage = "EN".obs;
   String get getSelectedLanguage => _selectedLanguage.value;
 
-  toggleLanguage() {
+  void toggleLanguage() {
     if (getSelectedLanguage == "PT") {
       _selectedLanguage.value = "EN";
       Get.back();
