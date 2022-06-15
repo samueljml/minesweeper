@@ -50,7 +50,7 @@ class Game extends StatelessWidget {
                         children: [
                           Container(
                             decoration:
-                                BoxDecoration(border: Border.all(width: 4)),
+                                BoxDecoration(border: Border.all(width: 3)),
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             height: 35,
                             child: TextButton(
@@ -70,7 +70,7 @@ class Game extends StatelessWidget {
                           ),
                           Container(
                               decoration:
-                                  BoxDecoration(border: Border.all(width: 4)),
+                                  BoxDecoration(border: Border.all(width: 3)),
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               height: 35,
