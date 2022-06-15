@@ -9,21 +9,27 @@ class Modal {
       EdgeInsetsGeometry padding =
           const EdgeInsets.symmetric(horizontal: 30, vertical: 15)}) {
     Get.dialog(
-      GestureDetector(
-        onTap: () => Get.back(),
-        child: Material(
-          color: Colors.black12,
-          child: Center(
-            child: Container(
-              height: height,
-              width: width,
-              padding: padding,
-              color: secondaryColor,
-              child: body,
+      Stack(children: [
+        SizedBox(
+          width: double.infinity,
+          height: double.infinity,
+          child: Material(
+            color: Colors.black12,
+            child: GestureDetector(
+              onTap: () => Get.back(),
             ),
           ),
         ),
-      ),
+        Center(
+          child: Container(
+            height: height,
+            width: width,
+            padding: padding,
+            color: secondaryColor,
+            child: body,
+          ),
+        ),
+      ]),
     );
   }
 }
