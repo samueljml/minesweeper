@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:minesweeper/app/global_widgets/mobile_screen.dart';
 
+import '../../global_widgets/mobile_screen.dart';
 import '../../global_widgets/modal.dart';
+import 'controller.dart';
 
-class Game extends StatelessWidget {
+class Game extends GetView<GameController> {
   const Game({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final TextStyle? fieldsTextStyle = Theme.of(context).textTheme.headline5;
-    const int bombs = 12;
 
     return MobileScreen(
         child: Column(
@@ -101,8 +101,11 @@ class Game extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              Text(bombs.toString(),
-                  style: Theme.of(context).textTheme.headline4),
+              Obx(
+                () => Text(
+                    controller.homeController.getTextControllers.textBombs.text,
+                    style: Theme.of(context).textTheme.headline4),
+              ),
             ],
           )
         ])
