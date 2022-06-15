@@ -26,7 +26,7 @@ class Game extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                "Confirmacao",
+                                "confirmation".tr,
                                 style: fieldsTextStyle,
                               ),
                             ],
@@ -35,7 +35,10 @@ class Game extends StatelessWidget {
                           Row(
                             children: [
                               Text(
-                                "Deseja voltar a tela inicial?",
+                                "backToHomeScreen".tr,
+                                maxLines: 2,
+                                softWrap: true,
+                                overflow: TextOverflow.ellipsis,
                                 style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ],
@@ -56,7 +59,7 @@ class Game extends StatelessWidget {
                               },
                               child: FittedBox(
                                 fit: BoxFit.fill,
-                                child: Text("nao",
+                                child: Text("no".tr,
                                     style:
                                         Theme.of(context).textTheme.headline6),
                               ),
@@ -75,7 +78,7 @@ class Game extends StatelessWidget {
                                 onPressed: () {
                                   Get.toNamed("/home");
                                 },
-                                child: Text("sim",
+                                child: Text("yes".tr,
                                     style:
                                         Theme.of(context).textTheme.headline6),
                               )),
