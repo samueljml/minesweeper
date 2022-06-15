@@ -190,7 +190,6 @@ class Home extends GetView<HomeController> {
                           },
                           style: OutlinedButton.styleFrom(
                             primary: Colors.black,
-                            onSurface: Colors.red,
                             shape: const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(Radius.zero)),
                           ),

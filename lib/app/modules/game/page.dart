@@ -52,16 +52,19 @@ class Game extends GetView<GameController> {
                     children: [
                       Container(
                         decoration: BoxDecoration(border: Border.all(width: 3)),
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        height: 35,
-                        child: TextButton(
-                          onPressed: () {
-                            Get.back();
-                          },
+                        height: 40,
+                        width: 80,
+                        child: OutlinedButton(
                           child: FittedBox(
                             fit: BoxFit.fill,
                             child: Text("no".tr,
                                 style: Theme.of(context).textTheme.headline6),
+                          ),
+                          onPressed: () => Get.back(),
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.black,
+                            shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.zero)),
                           ),
                         ),
                       ),
@@ -69,17 +72,23 @@ class Game extends GetView<GameController> {
                         width: 10,
                       ),
                       Container(
-                          decoration:
-                              BoxDecoration(border: Border.all(width: 3)),
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
-                          height: 35,
-                          child: TextButton(
-                            onPressed: () {
-                              Get.toNamed("/home");
-                            },
+                        decoration: BoxDecoration(border: Border.all(width: 3)),
+                        height: 40,
+                        width: 80,
+                        child: OutlinedButton(
+                          child: FittedBox(
+                            fit: BoxFit.fill,
                             child: Text("yes".tr,
                                 style: Theme.of(context).textTheme.headline6),
-                          )),
+                          ),
+                          onPressed: () => Get.toNamed("/home"),
+                          style: OutlinedButton.styleFrom(
+                            primary: Colors.black,
+                            shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.all(Radius.zero)),
+                          ),
+                        ),
+                      ),
                     ],
                   )
                 ],
