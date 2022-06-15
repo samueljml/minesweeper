@@ -13,11 +13,9 @@ class LanguageService extends GetxService {
   void toggleLanguage() {
     if (getSelectedLanguage == "PT") {
       _selectedLanguage.value = "EN";
-      Get.back();
       Get.updateLocale(const Locale('en', ''));
     } else {
       _selectedLanguage.value = "PT";
-      Get.back();
       Get.updateLocale(const Locale('pt', 'BR'));
     }
   }
