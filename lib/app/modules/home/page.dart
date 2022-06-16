@@ -72,7 +72,7 @@ class Home extends GetView<HomeController> {
                                       fit: BoxFit.fill,
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 4.5, top: 5),
+                                            left: 4, top: 5),
                                         child: Text("*",
                                             style: Theme.of(context)
                                                 .textTheme
