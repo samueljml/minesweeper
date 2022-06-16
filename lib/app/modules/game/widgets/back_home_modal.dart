@@ -68,7 +68,7 @@ class BackHomeModal {
                       fit: BoxFit.fill,
                       child: Text("yes".tr, style: TextStyles.button),
                     ),
-                    onPressed: () => Get.toNamed("/home"),
+                    onPressed: () => Get.offAllNamed("/home"),
                     style: OutlinedButton.styleFrom(
                       primary: Colors.black,
                       shape: const RoundedRectangleBorder(
