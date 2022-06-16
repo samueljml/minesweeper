@@ -12,9 +12,11 @@ class GameController extends GetxController {
   @override
   onReady() async {
     Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      _game.update((_game) {
-        _game!.duration += const Duration(seconds: 1);
-      });
+      if (_game.value.isPaused) {
+        _game.update((_game) {
+          _game!.duration += const Duration(seconds: 1);
+        });
+      }
     });
 
     super.onReady();
