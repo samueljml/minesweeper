@@ -109,15 +109,20 @@ class Game extends GetView<GameController> {
                 ),
               ),
               Obx(
-                () => Text(
-                    controller.homeController.getTextControllers.textBombs.text,
+                () => Text(controller.getBombs,
                     style: Theme.of(context).textTheme.headline4),
               ),
               const Icon(
                 FontAwesomeIcons.solidClock,
                 size: 27,
               ),
-              Text("01:02", style: Theme.of(context).textTheme.headline4),
+              SizedBox(
+                width: 104,
+                child: Obx(
+                  () => Text(controller.getTimer,
+                      style: Theme.of(context).textTheme.headline4),
+                ),
+              ),
             ],
           )
         ])
