@@ -12,7 +12,7 @@ class GameController extends GetxController {
   @override
   onReady() async {
     Timer.periodic(const Duration(seconds: 1), (Timer timer) {
-      if (_game.value.isPaused) {
+      if (!_game.value.isPaused) {
         _game.update((_game) {
           _game!.duration += const Duration(seconds: 1);
         });
@@ -32,4 +32,8 @@ class GameController extends GetxController {
   }
 
   String get getBombs => homeController.getTextControllers.textBombs.text;
+
+  void togglePauseGame() => _game.update((_game) {
+        _game!.isPaused = !_game.isPaused;
+      });
 }

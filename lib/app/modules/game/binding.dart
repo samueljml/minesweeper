@@ -7,7 +7,8 @@ class GameBinding implements Bindings {
   @override
   void dependencies() {
     Get.put<HomeController>(HomeController(), permanent: true);
-    Get.put<GameController>(
-        GameController(homeController: Get.find<HomeController>()));
+    Get.lazyPut<GameController>(
+        () => GameController(homeController: Get.find<HomeController>()),
+        fenix: false);
   }
 }
