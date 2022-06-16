@@ -17,8 +17,7 @@ class Home extends GetView<HomeController> {
     const BorderSide borderSide = BorderSide(width: 4);
 
     return MobileScreen(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Stack(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
