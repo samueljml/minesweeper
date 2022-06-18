@@ -23,17 +23,12 @@ class Game extends GetView<GameController> {
             },
           ),
           Wrap(
-            spacing: 10,
+            spacing: 15,
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              Center(
-                child: FittedBox(
-                  fit: BoxFit.fill,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 4.5, top: 1),
-                    child:
-                        Text("*", style: Theme.of(context).textTheme.headline4),
-                  ),
-                ),
+              const Icon(
+                FontAwesomeIcons.bomb,
+                size: 23,
               ),
               Obx(
                 () => Text(controller.getBombs,
@@ -41,7 +36,7 @@ class Game extends GetView<GameController> {
               ),
               const Icon(
                 FontAwesomeIcons.solidClock,
-                size: 27,
+                size: 23,
               ),
               SizedBox(
                 width: 104,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:minesweeper/app/modules/home/controller.dart';
 
@@ -65,22 +66,11 @@ class Home extends GetView<HomeController> {
                               padding: const EdgeInsets.all(fieldsPadding),
                               width: widgetsHeight,
                               height: widgetsHeight,
-                              child: Row(
-                                children: [
-                                  Center(
-                                    child: FittedBox(
-                                      fit: BoxFit.fill,
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 4, top: 5),
-                                        child: Text("*",
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headline2),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              child: const Center(
+                                child: Icon(
+                                  FontAwesomeIcons.bomb,
+                                  size: 23,
+                                ),
                               ),
                             ),
                             Flexible(
