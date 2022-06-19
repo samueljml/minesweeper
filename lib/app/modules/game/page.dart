@@ -14,40 +14,69 @@ class Game extends GetView<GameController> {
     return MobileScreen(
         child: Column(
       children: [
-        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-          IconButton(
-            icon: const Icon(FontAwesomeIcons.arrowLeft),
-            onPressed: () {
-              controller.togglePauseGame();
-              BackHomeModal.show(controller.togglePauseGame);
-            },
-          ),
-          Wrap(
-            spacing: 15,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            children: [
-              const Icon(
-                FontAwesomeIcons.bomb,
-                size: 23,
-              ),
-              Obx(
-                () => Text(controller.getBombs,
-                    style: Theme.of(context).textTheme.headline4),
-              ),
-              const Icon(
-                FontAwesomeIcons.solidClock,
-                size: 23,
-              ),
-              SizedBox(
-                width: 104,
-                child: Obx(
-                  () => Text(controller.getTimer,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(
+              icon: const Icon(FontAwesomeIcons.arrowLeft),
+              onPressed: () {
+                controller.togglePauseGame();
+                BackHomeModal.show(controller.togglePauseGame);
+              },
+            ),
+            Wrap(
+              spacing: 15,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                const Icon(
+                  FontAwesomeIcons.bomb,
+                  size: 23,
+                ),
+                Obx(
+                  () => Text(controller.getBombs,
                       style: Theme.of(context).textTheme.headline4),
                 ),
+                const Icon(
+                  FontAwesomeIcons.solidClock,
+                  size: 23,
+                ),
+                SizedBox(
+                  width: 104,
+                  child: Obx(
+                    () => Text(controller.getTimer,
+                        style: Theme.of(context).textTheme.headline4),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+        Obx(
+          () => Expanded(
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(border: Border.all(width: 5)),
+                child: GridView.count(
+                  crossAxisCount: controller.getHeight,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.vertical,
+                  crossAxisSpacing: 0,
+                  children: [
+                    for (int linha = 0; linha < controller.getHeight; linha++)
+                      for (int coluna = 0;
+                          coluna < controller.getWidth;
+                          coluna++)
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black),
+                          ),
+                        ),
+                  ],
+                ),
               ),
-            ],
-          )
-        ])
+            ),
+          ),
+        ),
       ],
     ));
   }

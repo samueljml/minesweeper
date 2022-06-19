@@ -32,6 +32,10 @@ class GameController extends GetxController {
   }
 
   String get getBombs => homeController.getTextControllers.textBombs.text;
+  int get getWidth =>
+      int.parse(homeController.getTextControllers.textWidth.text);
+  int get getHeight =>
+      int.parse(homeController.getTextControllers.textHeight.text);
 
   void togglePauseGame() => _game.update((_game) {
         _game!.isPaused = !_game.isPaused;
