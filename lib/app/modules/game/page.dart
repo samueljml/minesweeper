@@ -55,23 +55,25 @@ class Game extends GetView<GameController> {
           () => Expanded(
             child: Center(
               child: Container(
-                decoration: BoxDecoration(border: Border.all(width: 5)),
-                child: GridView.count(
-                  crossAxisCount: controller.getHeight,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
-                  crossAxisSpacing: 0,
-                  children: [
-                    for (int linha = 0; linha < controller.getHeight; linha++)
-                      for (int coluna = 0;
-                          coluna < controller.getWidth;
-                          coluna++)
-                        Container(
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black),
+                decoration: BoxDecoration(border: Border.all(width: 3)),
+                child: InteractiveViewer(
+                  child: GridView.count(
+                    crossAxisCount: controller.getHeight,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    crossAxisSpacing: 0,
+                    children: [
+                      for (int linha = 0; linha < controller.getHeight; linha++)
+                        for (int coluna = 0;
+                            coluna < controller.getWidth;
+                            coluna++)
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                            ),
                           ),
-                        ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
