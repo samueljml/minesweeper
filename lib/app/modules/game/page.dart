@@ -63,13 +63,26 @@ class Game extends GetView<GameController> {
                     scrollDirection: Axis.vertical,
                     crossAxisSpacing: 0,
                     children: [
-                      for (int linha = 0; linha < controller.getHeight; linha++)
-                        for (int coluna = 0;
-                            coluna < controller.getWidth;
-                            coluna++)
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(color: Colors.black),
+                      for (final row in controller.getFields)
+                        for (final field in row)
+                          InkWell(
+                            onTap: () {
+                              field.opened = true;
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.black),
+                              ),
+                              child: Visibility(
+                                visible: field.opened,
+                                child: Center(
+                                  child: Text(
+                                    field.text,
+                                    style:
+                                        Theme.of(context).textTheme.headline4,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                     ],

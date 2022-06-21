@@ -19,6 +19,19 @@ class GameController extends GetxController {
       }
     });
 
+    List<List<Field>> list = [];
+    for (int i = 0; i < 10; i++) {
+      List<Field> row = [];
+      for (int j = 0; j < 10; j++) {
+        row.add(Field("*"));
+      }
+      list.add(row);
+    }
+
+    _game.update((_game) {
+      _game!.fields = list;
+    });
+
     super.onReady();
   }
 
@@ -30,6 +43,8 @@ class GameController extends GetxController {
     String seconds = twoDigits(_game.value.duration.inSeconds.remainder(60));
     return "$minutes:$seconds";
   }
+
+  List<List<Field>> get getFields => _game.value.fields;
 
   String get getBombs => homeController.getTextControllers.textBombs.text;
   int get getWidth =>
